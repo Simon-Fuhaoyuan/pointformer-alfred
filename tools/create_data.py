@@ -100,6 +100,19 @@ def lyft_data_prep(root_path, info_prefix, version, max_sweeps=10):
         root_path, info_prefix, version=version, max_sweeps=max_sweeps)
 
 
+def alfred_data_prep(root_path, info_prefix, out_dir, workers):
+    """Prepare the info file for alfred dataset.
+
+    Args:
+        root_path (str): Path of dataset root.
+        info_prefix (str): The prefix of info filenames.
+        out_dir (str): Output directory of the generated info file.
+        workers (int): Number of threads to be used.
+    """
+    indoor.create_indoor_info_file(
+        root_path, info_prefix, out_dir, workers=workers)
+
+
 def scannet_data_prep(root_path, info_prefix, out_dir, workers):
     """Prepare the info file for scannet dataset.
 
@@ -252,12 +265,16 @@ if __name__ == '__main__':
             root_path=args.root_path,
             info_prefix=args.extra_tag,
             version=train_version,
+            dataset_name='LyftDataset',
+            out_dir=args.out_dir,
             max_sweeps=args.max_sweeps)
         test_version = f'{args.version}-test'
         lyft_data_prep(
             root_path=args.root_path,
             info_prefix=args.extra_tag,
             version=test_version,
+            dataset_name='LyftDataset',
+            out_dir=args.out_dir,
             max_sweeps=args.max_sweeps)
     elif args.dataset == 'waymo':
         waymo_data_prep(
@@ -267,6 +284,12 @@ if __name__ == '__main__':
             out_dir=args.out_dir,
             workers=args.workers,
             max_sweeps=args.max_sweeps)
+    elif args.dataset == 'alfred':
+        alfred_data_prep(
+            root_path=args.root_path,
+            info_prefix=args.extra_tag,
+            out_dir=args.out_dir,
+            workers=args.workers)
     elif args.dataset == 'scannet':
         scannet_data_prep(
             root_path=args.root_path,

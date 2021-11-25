@@ -24,6 +24,7 @@ from .scannet_dataset import ScanNetDataset, ScanNetSegDataset
 from .semantickitti_dataset import SemanticKITTIDataset
 from .sunrgbd_dataset import SUNRGBDDataset
 from .utils import get_loading_pipeline
+from .alfred_dataset import AlfredDataset
 from .waymo_dataset import WaymoDataset
 
 __all__ = [
@@ -38,5 +39,5 @@ __all__ = [
     'Custom3DDataset', 'Custom3DSegDataset', 'LoadPointsFromMultiSweeps',
     'WaymoDataset', 'BackgroundPointsFilter', 'VoxelBasedPointSampler',
     'get_loading_pipeline', 'RandomDropPointsColor', 'RandomJitterPoints',
-    'ObjectNameFilter'
+    'ObjectNameFilter', 'AlfredDataset'
 ]
