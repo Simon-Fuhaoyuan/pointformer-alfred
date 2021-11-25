@@ -1,4 +1,4 @@
-# 3D Object Detection with Pointformer
+# VG-TAMP: Visually-Grounded Task-and-Motion Planning in 3D Household Environments
 
 This repository contains the code for the paper VG-TAMP: Visually-Grounded Task-and-Motion Planning in 3D Household Environments.
 

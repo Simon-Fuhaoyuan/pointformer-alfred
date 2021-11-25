@@ -4,11 +4,21 @@
 
 2. Save the corresponding path of train, val and test data in the directory `meta_data`
 
-3. Enter the project root directory, generate train, val and test data by running:
+3. Generate numpy array data by running:
 
-```python
-python tools/create_data.py alfred --root-path ./data/alfred --out-dir ./data/alfred --extra-tag alfred
-```
+    ```bash
+    bash ./batch_load.sh
+    ```
+
+    If success, you should see a new directory called `alfred_instance_data` with `.npy` files in it.
+
+4. Enter the **project root directory**, generate train, val and test data by running:
+
+    ```bash
+    python tools/create_data.py alfred --root-path ./data/alfred --out-dir ./data/alfred --extra-tag alfred
+    ```
+
+After that, all the data for training and testing are ready.
 
 #### Structure
 The directory structure after pre-processing should be as below
